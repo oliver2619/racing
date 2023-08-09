@@ -1,0 +1,17 @@
+@keyframes rotate {
+    from {
+        transform: rotate(-80deg);
+    }
+
+    to {
+        transform: rotate(60deg);
+    }
+}
+
+@mixin animate-rotate {
+    animation-name: rotate;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

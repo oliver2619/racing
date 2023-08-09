@@ -1,0 +1,9 @@
+@import "../../style/shared.scss";
+
+:host {
+    @include page;
+}
+
+small {
+    text-align: center;
+}

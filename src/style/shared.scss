@@ -1,0 +1,40 @@
+$font-family: Segoe UI, sans-serif;
+$font-family-mono: monospace, 'Courier New', Courier;
+$font-weight: 300;
+$font-size: 5vh;
+$borderRadius: 1vh;
+
+$color-yellow: rgb(255,212,0);
+$color-red: rgb(255,4,0);
+$color-green: rgb(21,194,0);
+$color-blue: rgb(44,47,224);
+$color-violet: rgb(128,26,224);
+$color-black: rgb(50,50,50);
+
+@mixin font {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+@mixin page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+@mixin button-navbar {
+    @include font;
+    border-style: none;
+    padding: 1ex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #808080;
+
+    &.active{
+        background-color: #e0e0e0;
+    }
+}

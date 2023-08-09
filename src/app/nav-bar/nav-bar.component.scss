@@ -1,0 +1,20 @@
+@import "../../style/shared.scss";
+
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    column-gap: 1px;
+
+    button {
+        @include button-navbar;
+    }
+}

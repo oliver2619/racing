@@ -1,0 +1,52 @@
+@import "style/shared.scss";
+@import "style/animations.scss";
+
+html {
+    height: 100%;
+}
+
+body {
+    @include font;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    user-select: none;
+    touch-action: none;
+}
+
+button.nav-bar {
+    @include button-navbar;
+}
+
+button.animate-rotate img {
+    @include animate-rotate;
+}
+
+button[disabled] {
+    opacity: .5;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1ex 1ex;
+    align-items: center;
+    justify-items: start;
+    align-self: center;
+}
+
+input[type=text] {
+    @include font;
+    padding: 0.5ex 1ex;
+}
+
+h1 {
+    margin: .5ex 0;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: $font-size * 2;
+    text-align: center;
+}

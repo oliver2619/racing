@@ -1,0 +1,14 @@
+@import "../../style/shared.scss";
+
+:host {
+    @include page;
+}
+
+button {
+    border: 1px solid black;
+    background-color: #c0c0c0;
+
+    &.active {
+        background-color: black;
+    }
+}
