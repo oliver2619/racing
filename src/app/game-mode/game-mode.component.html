@@ -1,0 +1,18 @@
+<r-nav-bar></r-nav-bar>
+<h1>Racing</h1>
+<div class="choice">
+    <div class="choice-content">
+        <h2>Einzelrennen</h2>
+        <div class="button-list-2 vertical">
+            <button type="button" routerLink="/newSingleRace">Neu</button>
+            <button *ngIf="canResumeSingleRace" type="button" (click)="resumeSingleRace()">Fortsetzen</button>
+        </div>
+    </div>
+    <div class="choice-content">
+        <h2>Weltmeisterschaft</h2>
+        <div class="button-list-2 vertical">
+            <button type="button" routerLink="/newChampionship">Neu</button>
+            <button *ngIf="canResumeChampionship" type="button" (click)="resumeChampionship()">Fortsetzen</button>
+        </div>
+    </div>
+</div>

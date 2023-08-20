@@ -1,0 +1,9 @@
+@import "../../style/shared.scss";
+
+:host {
+    @include page;
+}
+
+.desc {
+    margin-top: 1ex;
+}

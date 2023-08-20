@@ -1,0 +1,6 @@
+@import "../../../style/shared.scss";
+
+:host {
+    @include page;
+    row-gap: $spacing;
+}

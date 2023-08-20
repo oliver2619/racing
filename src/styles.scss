@@ -1,5 +1,7 @@
 @import "style/shared.scss";
 @import "style/animations.scss";
+@import "style/nav-bar.scss";
+@import "style/table.scss";
 
 html {
     height: 100%;
@@ -17,25 +19,77 @@ body {
     touch-action: none;
 }
 
-button.nav-bar {
+a.button {
+    text-decoration: inherit;
+}
+
+button.button {
+    @include button;
+}
+
+button.nav-bar, a.button.nav-bar {
     @include button-navbar;
 }
 
-button.animate-rotate img {
+button.animate-rotate img, a.button.animate-rotate {
     @include animate-rotate;
 }
 
-button[disabled] {
-    opacity: .5;
+.button-group-2 {
+    @include button-group(2);
 }
 
-form {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 1ex 1ex;
-    align-items: center;
-    justify-items: start;
-    align-self: center;
+.button-group-3 {
+    @include button-group(3);
+}
+
+.button-group-4 {
+    @include button-group(4);
+}
+
+.button-group-5 {
+    @include button-group(5);
+}
+
+.button-group-6 {
+    @include button-group(6);
+}
+
+.button-list-2 {
+    @include button-list(2);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    column-gap: 1px;
+
+    button, a.button {
+        @include button;
+    }
+}
+
+.form-1 {
+    @include form(1);
+}
+
+.form-2 {
+    @include form(2);
+}
+
+.form-v {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: $spacing;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: $spacing * 0.25;
+    }
 }
 
 input[type=text] {
@@ -43,10 +97,108 @@ input[type=text] {
     padding: 0.5ex 1ex;
 }
 
+label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+        margin: 0 $spacing * .5;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
 h1 {
-    margin: .5ex 0;
+    margin: $spacing 0;
     font-family: $font-family;
     font-weight: $font-weight;
     font-size: $font-size * 2;
     text-align: center;
+}
+
+h2 {
+    margin: 0;
+    margin-top: $spacing;
+    margin-bottom: $spacing * 0.5;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: $font-size * 1.4;
+}
+
+p {
+    margin: $spacing * 0.25 0;
+    text-align: justify;
+
+    img {
+        vertical-align: middle;
+    }
+}
+
+button img, a.button img {
+    height: $img-button-size;
+
+    &:nth-child(n + 2) {
+        position: absolute;
+        height: $img-button-size * .5;
+        transform: translate($img-button-size * .25, $img-button-size * .25);
+    }
+}
+
+button[disabled] img {
+    filter: blur(2px);
+}
+
+label img, p img {
+    height: $img-label-size;
+}
+
+dl {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    font-size: $font-size * 0.7;
+}
+
+dt {
+    margin: 0;
+    padding-left: $spacing;
+
+    &:nth-child(n + 2) {
+        border-left: 1px solid #c0c0c0;
+    }
+
+    &::after {
+        content: ':';
+    }
+}
+
+dd {
+    margin: 0;
+    padding-left: $spacing;
+    padding-right: $spacing;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.red {
+    color: red;
+}
+
+.scroll-container {
+    position: relative;
+    align-self: stretch;
+    justify-self: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: scroll;
+}
+
+.scroll-content {
+    position: absolute;
+    padding: $spacing;
 }

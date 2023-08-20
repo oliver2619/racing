@@ -1,0 +1,23 @@
+<div class="nav-bar">
+    <div class="nav-bar-group">
+        <button type="button" routerLink=".." class="nav-bar-item" rIconButton="arrow_left"></button>
+    </div>
+</div>
+<h1>Parcour laden</h1>
+<div class="scroll-container">
+    <div class="scroll-content">
+        <table>
+            <tbody>
+                <tr *ngFor="let p of parcours">
+                    <td>{{p.name}}</td>
+                    <td>
+                        <button type="button" (click)="load(p.key, p.builtin)" class="button small">Laden</button>
+                    </td>
+                    <td>
+                        <button *ngIf="!p.builtin" type="button" (click)="remove(p.key)" class="button small">Löschen</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

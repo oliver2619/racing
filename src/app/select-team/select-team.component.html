@@ -1,1 +1,24 @@
-<p>select-team works!</p>
+<r-nav-bar [back]="true">
+    <button type="button" (click)="start()" class="nav-bar" rIconButton="traffic_lights_green"></button>
+</r-nav-bar>
+<h2>Wähle Dein Team</h2>
+<div class="button-group-6">
+    <button type="button" (click)="team = 0" [ngClass]="{active: team == 0}" class="team-select yellow">Renault</button>
+    <button type="button" (click)="team = 1" [ngClass]="{active: team == 1}" class="team-select red">Ferrari</button>
+    <button type="button" (click)="team = 2" [ngClass]="{active: team == 2}" class="team-select green">Lotus</button>
+    <button type="button" (click)="team = 3" [ngClass]="{active: team == 3}" class="team-select blue">BMW</button>
+    <button type="button" (click)="team = 4" [ngClass]="{active: team == 4}" class="team-select violet">Honda</button>
+    <button type="button" (click)="team = 5" [ngClass]="{active: team == 5}" class="team-select black">Mercedes</button>
+</div>
+<div *ngIf="team == 0" class="desc">Das Team hat die besseren Reifen.</div>
+<div *ngIf="team == 1" class="desc">Das Auto ist sehr schnell in Kurven.</div>
+<div *ngIf="team == 2" class="desc">Das Team mit dem Überholbonus oder Schummelbonus.</div>
+<div *ngIf="team == 3" class="desc">Das Auto mit der grössten Höchstgeschwindigkeit.</div>
+<div *ngIf="team == 4" class="desc">Das Auto mit der grössten Beschleunigung.</div>
+<div *ngIf="team == 5" class="desc">Das stabilste Auto, das auch eine richtige Hupe hat.</div>
+<h2 *ngIf="isChampionship">Schwierigkeitsgrad</h2>
+<div *ngIf="isChampionship" class="button-group-3">
+    <button type="button" (click)="level = 0" [ngClass]="{active: level == 0}">Anfänger</button>
+    <button type="button" (click)="level = 1" [ngClass]="{active: level == 1}">Amateur</button>
+    <button type="button" (click)="level = 2" [ngClass]="{active: level == 2}">Profi</button>
+</div>

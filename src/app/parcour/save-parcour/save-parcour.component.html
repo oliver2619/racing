@@ -1,0 +1,10 @@
+<h1>Parcour speichern</h1>
+<form [formGroup]="formGroup" class="form-2">
+    <label for="saveParcourName">Name</label>
+    <input id="saveParcourName" type="text" formControlName="name" size="20" maxlength="20">
+</form>
+<p *ngIf="doesParcourExist" class="red">Parcour mit diesem Namen existiert bereits.</p>
+<div class="button-list-2">
+    <button type="button" (click)="onSave()" [disabled]="!canSave">Speichern</button>
+    <button type="button" routerLink="..">Abbrechen</button>
+</div>

@@ -1,0 +1,32 @@
+<table>
+    <thead>
+        <tr>
+            <th>Pos.</th>
+            <th>Team</th>
+            <th>Pkt.</th>
+            <th>SP</th>
+            <th>SR</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of rankings">
+            <td class="number" [ngClass]="{emphasis: r.position == 1}">
+                <span *ngIf="r.position != undefined">{{r.position}}</span>
+                <span *ngIf="r.position == undefined">-</span>
+            </td>
+            <td [ngClass]="{emphasis: r.position == 1}">{{r.team}}</td>
+            <td class="number" [ngClass]="{emphasis: r.position == 1}">{{r.score}}</td>
+            <td class="number" [ngClass]="{emphasis: r.start == 1}">{{r.start}}</td>
+            <td class="number" [ngClass]="{emphasis: r.fastLapBest}">
+                <span *ngIf="r.fastLap != undefined">{{r.fastLap | number:'1.1-1'}}</span>
+                <span *ngIf="r.fastLap == undefined">-</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<dl>
+    <dt>SP</dt>
+    <dd>Start Position</dd>
+    <dt>SR</dt>
+    <dd>Schnellste Runde</dd>
+</dl>

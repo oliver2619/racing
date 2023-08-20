@@ -1,0 +1,3 @@
+export enum AppRouting {
+    INITIAL, CAR_SETUP, PARCOUR, RACING, CHAMPIONSHIP
+}

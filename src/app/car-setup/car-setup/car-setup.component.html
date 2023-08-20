@@ -1,0 +1,66 @@
+<r-nav-bar [back]="true">
+    <button type="button" routerLink="help" class="nav-bar" rIconButton="help"></button>
+</r-nav-bar>
+<div class="form-2">
+    <label><img rIconImg="tire">Reifen</label>
+    <div class="button-group-2">
+        <button type="button" (click)="setTiresDry()" [ngClass]="{active: tiresDry}" rIconButton="weather_sun"></button>
+        <button type="button" (click)="setTiresRain()" [ngClass]="{active: tiresRain}" rIconButton="weather_rain"></button>
+    </div>
+    <label><img rIconImg="gear_in">Getriebe</label>
+    <div class="button-group-5">
+        <button type="button" (click)="gear = 0" [ngClass]="{active: gear == 0}">B</button>
+        <button type="button" (click)="gear = 1" [ngClass]="{active: gear == 1}">2</button>
+        <button type="button" (click)="gear = 2" [ngClass]="{active: gear == 2}">3</button>
+        <button type="button" (click)="gear = 3" [ngClass]="{active: gear == 3}">4</button>
+        <button type="button" (click)="gear = 4" [ngClass]="{active: gear == 4}">G</button>
+    </div>
+    <label><img rIconImg="windy">Spoiler</label>
+    <div class="button-group-5">
+        <button type="button" (click)="flaps = 0" [ngClass]="{active: flaps == 0}">10 °</button>
+        <button type="button" (click)="flaps = 1" [ngClass]="{active: flaps == 1}">30 °</button>
+        <button type="button" (click)="flaps = 2" [ngClass]="{active: flaps == 2}">40 °</button>
+        <button type="button" (click)="flaps = 3" [ngClass]="{active: flaps == 3}">45 °</button>
+        <button type="button" (click)="flaps = 4" [ngClass]="{active: flaps == 4}">48 °</button>
+    </div>
+    <label><img rIconImg="fire">Haltbarkeit</label>
+    <div class="button-group-3">
+        <button type="button" (click)="durability = 0" [ngClass]="{active: durability == 0}">2</button>
+        <button type="button" (click)="durability = 1" [ngClass]="{active: durability == 1}">3</button>
+        <button type="button" (click)="durability = 2" [ngClass]="{active: durability == 2}">4</button>
+    </div>
+    <label><img rIconImg="gas">Treibstoff</label>
+    <div class="input-group">
+        <button type="button" (click)="changeFuel(-10)" [disabled]="!canChangeFuel(-10)" rIconButton="delete delete"></button>
+        <button type="button" (click)="changeFuel(-1)" [disabled]="!canChangeFuel(-1)" rIconButton="delete"></button>
+        <r-digital-number [value]="fuel" [digits]="0" [width]="3" size="m"></r-digital-number>
+        <button type="button" (click)="changeFuel(1)" [disabled]="!canChangeFuel(1)" rIconButton="add"></button>
+        <button type="button" (click)="changeFuel(10)" [disabled]="!canChangeFuel(10)" rIconButton="add add"></button>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-item">
+        <label><img rIconImg="arrow_up"></label>
+        <r-digital-number [value]="maxSpeed" size="s"></r-digital-number>
+    </div>
+    <div class="footer-item">
+        <label><img rIconImg="arrow_turn_right"></label>
+        <r-digital-number [value]="avgSpeedInCurve" size="s"></r-digital-number>
+    </div>
+    <div class="footer-item">
+        <label><img rIconImg="rocket"></label>
+        <r-digital-number [value]="maxAcceleration" size="s"></r-digital-number>
+    </div>
+    <div class="footer-item">
+        <label><img rIconImg="dynamite"></label>
+        <r-digital-number [value]="challengeSuccessTimes" [digits]="0" [width]="3" size="s"></r-digital-number>
+    </div>
+    <div class="footer-item">
+        <label><img rIconImg="gas"></label>
+        <r-digital-number (refresh)="updateMaxRounds()" [value]="maxRounds" [digits]="1" size="s"></r-digital-number>
+    </div>
+    <div class="footer-item">
+        <label><img rIconImg="star"></label>
+        <r-digital-number (refresh)="updateBenchmark()" [value]="benchmarkValue" [digits]="2" size="s"></r-digital-number>
+    </div>
+</div>

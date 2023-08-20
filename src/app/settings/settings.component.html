@@ -1,12 +1,12 @@
-<r-nav-bar></r-nav-bar>
+<r-nav-bar [back]="true"></r-nav-bar>
 <h1>Einstellungen</h1>
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" class="form-1">
     <label>Sound</label>
-    <div>
+    <div class="button-group-3">
         <button type="button" (click)="soundLevel = 0" [ngClass]="{active: soundLevel == 0}" rIconButton="sound_mute"></button>
         <button type="button" (click)="soundLevel = 1" [ngClass]="{active: soundLevel == 1}" rIconButton="sound_none"></button>
         <button type="button" (click)="soundLevel = 2" [ngClass]="{active: soundLevel == 2}" rIconButton="sound"></button>
     </div>
     <label for="settings.name">Name</label>
-    <input id="settings.name" type="text" formControlName="name" (change)="onChangeName()" size="20">
+    <input id="settings.name" type="text" formControlName="name" (change)="onChangeName()" size="20" maxlength="20">
 </form>

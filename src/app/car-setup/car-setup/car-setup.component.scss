@@ -1,0 +1,23 @@
+@import "../../../style/shared.scss";
+
+:host {
+    @include page;
+}
+
+.form-2 {
+    flex-grow: 1;
+}
+
+.footer {
+    margin: $spacing 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: $spacing * 3;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

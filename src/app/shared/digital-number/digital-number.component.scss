@@ -1,0 +1,41 @@
+@import "../../../style/shared.scss";
+
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    a {
+        outline: none;
+        box-shadow: inset 0 0 0.3ex #c0ff80;
+        border: 1px solid black;
+        border-radius: $borderRadius;
+        padding: 0.1ex 0.5ex;
+        font-family: $font-family-mono;
+        font-weight: bold;
+        text-decoration: none;
+        color: #c0ff80;
+        text-shadow: 0 0 0.5ex #c0ff80;
+        text-align: right;
+        background: radial-gradient(circle, rgb(60,60,60) 0%, rgb(0,0,0) 100%);
+
+        &.large {
+            font-size: $font-size * 5;
+        }
+
+        &.medium {
+            padding: $spacing * .5;
+            font-size: $font-size * 1.5;
+        }
+
+        &.small {
+            font-size: $font-size;
+        }
+
+        &.animating {
+            box-shadow: inset 0 0 0.3ex #ffc040;
+            color: #ffc040;
+            text-shadow: 0 0 0.5ex #ffc040;
+        }
+    }
+}

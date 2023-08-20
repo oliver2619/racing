@@ -1,0 +1,9 @@
+<r-nav-bar [back]="true"></r-nav-bar>
+<div class="sub-page">
+    <div class="sub-nav-bar">
+        <button *ngIf="hasRaceResult" type="button" routerLink="previousRace" routerLinkActive="active">Letztes Rennen</button>
+        <button type="button" routerLink="ranking" routerLinkActive="active">Rangliste</button>
+        <button type="button" routerLink="history" routerLinkActive="active">Plan</button>
+    </div>
+    <router-outlet></router-outlet>
+</div>

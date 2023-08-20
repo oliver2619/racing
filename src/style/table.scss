@@ -1,0 +1,38 @@
+@import "shared.scss";
+
+table{
+    empty-cells: show;
+    border-collapse: collapse;
+}
+
+tbody {
+    tr:nth-child(2n) {
+        background-color: #e0e0e0;
+    }
+
+    tr:nth-child(2n + 1) {
+        background-color: #f0f0f0;
+    }
+}
+
+td {
+    @include font;
+
+    &.number {
+        text-align: end;
+    }
+
+    &.emphasis {
+        font-weight: $font-weight + 100;
+    }
+}
+
+th {
+    @include font;
+    font-weight: $font-weight + 100;
+    text-align: start;
+}
+
+td, th {
+    padding: $spacing * .5 $spacing;
+}

@@ -1,0 +1,11 @@
+<r-nav-bar [back]="true">
+    <button type="button" (click)="shuffle()" [disabled]="!canShuffle" class="nav-bar" rIconButton="dice" [rotate]="!isShuffling"></button>
+</r-nav-bar>
+<h1>Das Wetter</h1>
+<div class="button-group-5">
+    <button type="button" (click)="weather = 0" [disabled]="!canSetWeather(0)" [ngClass]="{active: weather == 0}" rIconButton="weather_sun"></button>
+    <button type="button" (click)="weather = 1" [disabled]="!canSetWeather(1)" [ngClass]="{active: weather == 1}" rIconButton="weather_cloudy"></button>
+    <button type="button" (click)="weather = 2" [disabled]="!canSetWeather(2)" [ngClass]="{active: weather == 2}" rIconButton="weather_clouds"></button>
+    <button type="button" (click)="weather = 3" [disabled]="!canSetWeather(3)" [ngClass]="{active: weather == 3}" rIconButton="weather_rain_little"></button>
+    <button type="button" (click)="weather = 4" [disabled]="!canSetWeather(4)" [ngClass]="{active: weather == 4}" rIconButton="weather_rain"></button>
+</div>

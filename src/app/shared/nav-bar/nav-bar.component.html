@@ -1,0 +1,16 @@
+<div class="nav-bar-group">
+    <button *ngIf="backEnabled" type="button" (click)="back()" rIconButton="arrow_left"></button>
+    <button *ngIf="canNavigateChampionship" type="button" routerLink="/championship" routerLinkActive="active" rIconButton="cup_gold"></button>
+    <button *ngIf="canNavigateParcour" type="button" routerLink="/parcour" routerLinkActive="active" rIconButton="map"></button>
+    <button *ngIf="canChangeWeather" type="button" routerLink="/weather" routerLinkActive="active" rIconButton="weather_cloudy"></button>
+    <button *ngIf="canSetupCar" type="button" routerLink="/setup" routerLinkActive="active" rIconButton="wrench_orange"></button>
+    <button *ngIf="canRace" type="button" routerLink="/race" routerLinkActive="active" rIconButton="steering_wheel_racing"></button>
+</div>
+<div class="nav-bar-group">
+    <ng-content></ng-content>
+</div>
+<div class="nav-bar-group">
+    <button type="button" routerLink="/challenge" routerLinkActive="active" rIconButton="dice"></button>
+    <button type="button" routerLink="/settings" routerLinkActive="active" rIconButton="cog"></button>
+    <button type="button" routerLink="/about" routerLinkActive="active" rIconButton="information"></button>
+</div>

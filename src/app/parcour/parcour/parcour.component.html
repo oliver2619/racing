@@ -1,0 +1,38 @@
+<r-nav-bar [back]="true">
+    <button *ngIf="canModify" type="button" routerLink="/parcour/load" class="nav-bar" rIconButton="folder_explorer"></button>
+    <button *ngIf="canModify && isComplete" type="button" routerLink="/parcour/save" class="nav-bar" rIconButton="diskette"></button>
+    <a *ngIf="canModify && isComplete" class="button nav-bar" href="data:application/json;base64,{{downloadData}}" download="parcour.json" rIconButton="download"></a>
+    <div class="separator"></div>
+    <button *ngIf="canModify" type="button" routerLink="/parcour/delete" class="nav-bar" rIconButton="bin"></button>
+</r-nav-bar>
+<div class="canvas-with-menu">
+    <r-parcour-canvas [mode]="canModify ? 'edit' : 'readonly'" (select)="onSelectTile($event)"></r-parcour-canvas>
+    <div class="menu">
+        <div class="form-v">
+            <div *ngIf="canModify" class="form-group" [ngClass]="{hidden: !hasSelection}">
+                <label><img rIconImg="ruler">Länge</label>
+                <div class="input-group">
+                    <button *ngFor="let l of lengthValues" type="button" (click)="setTileLength(l)" [ngClass]="{active: selectedTileLength == l}">{{l}}</button>
+                </div>
+            </div>
+            <div *ngIf="canModify" class="form-group" [ngClass]="{hidden: !hasCurveSelected}">
+                <label><img rIconImg="dashboard">Kurve</label>
+                <div class="input-group">
+                    <button *ngFor="let c of curveValues" type="button" (click)="setCurveSpeed(c)" [ngClass]="{active: selectedCurveSpeed == c}">{{c}}</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><img rIconImg="flag_finish">Runden</label>
+                <div class="input-group">
+                    <button *ngIf="canModify" type="button" [disabled]="!canDecRounds" (click)="decRounds()" rIconButton="delete"></button>
+                    <r-digital-number [value]="numberOfRounds" [digits]="0" [width]="2" size="m"></r-digital-number>
+                    <button *ngIf="canModify" type="button" [disabled]="!canIncRounds" (click)="incRounds()" rIconButton="add"></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><img rIconImg="ruler">Felder</label>
+                <r-digital-number [value]="numberOfFields * numberOfRounds" [digits]="0" [width]="3" size="s"></r-digital-number>
+            </div>
+        </div>
+    </div>
+</div>

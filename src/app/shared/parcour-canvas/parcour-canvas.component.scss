@@ -1,0 +1,161 @@
+@import "../../../style/shared.scss";
+
+$grid-size: 48px;
+
+@mixin rotation {
+	&.r0 {
+		transform: rotate(0deg);
+	}
+
+	&.r1 {
+		transform: rotate(-90deg);
+	}
+
+	&.r2 {
+		transform: rotate(-180deg);
+	}
+
+	&.r3 {
+		transform: rotate(-270deg);
+	}
+}
+
+@mixin tile($img, $width, $height) {
+	@include rotation;
+	position: absolute;
+	width: $grid-size * $width;
+	height: $grid-size * $height;
+	background-image: url("/assets/tiles/" + $img + ".png");
+	background-size: $grid-size * $width $grid-size * $height;
+}
+
+:host {
+    position: relative;
+    background-color: black;
+    align-self: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+	overflow: auto;
+}
+
+.parcour {
+    position: absolute;
+}
+
+.g3 {
+	@include tile("g3", 4, 3);
+
+	&.r1,
+	&.r3 {
+		transform: rotate(-90deg) translate(-$grid-size * 0.5, -$grid-size * 0.5);
+	}
+}
+
+.g4 {
+	@include tile("g4", 4, 4);
+}
+
+.k1 {
+	@include tile("k1", 4, 4);
+}
+
+.k3 {
+	@include tile("k3", 4, 4);
+}
+
+.k4 {
+	@include tile("k4", 5, 5);
+}
+
+.z {
+	@include tile("z", 4, 4);
+}
+
+.selection {
+	pointer-events: none;
+	position: absolute;
+	box-sizing: border-box;
+	border: 2px solid #80ff00;
+	background-color: rgba(white, 0.5);
+}
+
+.speed-tile {
+	pointer-events: none;
+	position: absolute;
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: row;
+	padding: 0.4em;
+
+	&.r0 {
+		align-items: flex-start;
+		justify-content: flex-end;
+	}
+
+	&.r1 {
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	&.r2 {
+		align-items: flex-end;
+		justify-content: flex-start;
+	}
+
+	&.r3 {
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+}
+
+.speed {
+	border: 0.35em solid #ff0000;
+	border-radius: 4em;
+	box-shadow: 0 0 3px black, 0 0 8px black, inset 0 0 4px #ff0000;
+	box-sizing: border-box;
+	font-family: $font-family-mono;
+	font-size: $font-size;
+	font-weight: bold;
+	text-shadow: 0 0 3px black;
+	background-color: white;
+	padding: 0.6em;
+}
+
+.tile-input {
+	@include rotation;
+	pointer-events: none;
+	position: absolute;
+	display: flex;
+
+	button {
+		@include button-base;
+		pointer-events: all;
+		border: 1px solid black;
+		border-radius: $spacing * 10;
+		box-shadow: 0 0 3px black, 0 0 8px black;
+		padding: $spacing;
+		background-color: rgba(black, 0.5);
+		backdrop-filter: blur(3px);
+	}
+
+	&.center {
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		column-gap: $spacing;
+	}
+
+	&.edge {
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+		column-gap: $spacing * 0.5;
+	}
+
+	.b-group {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		column-gap: $spacing;
+	}
+}

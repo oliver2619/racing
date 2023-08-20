@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'r-root',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'racing';
+
+  @HostListener('document:contextmenu', ['$event'])
+  onContextMenu(ev: MouseEvent) {
+    ev.preventDefault();
+  }
 }
